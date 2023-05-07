@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, render_template
 
 # create instance of Flask class called app
 # __name is built in python var#
@@ -13,11 +13,28 @@ app = Flask(__name__)
 # all functs are objects and can be passded around
 # so browse the root dir as indicated by "/"
 
+
 @app.route("/")
 def index():
-    return "Hello, Flask"
-    
-# __main__ is name od default module in python
+    # return "<h1>Hello</h1> <h2> Flask </h2>"
+    return render_template("index.html")
+
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
+
+@app.route("/careers")
+def careers():
+    return render_template("careers.html")
+
+
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),
