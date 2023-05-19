@@ -1,6 +1,8 @@
 import os
 import json
-from flask import Flask, render_template
+from flask import Flask, render_template, request, flash
+if (os.path.exists("env.py")):
+    import env
 
 # create instance of Flask class called app
 # __name is built in python var#
@@ -8,6 +10,7 @@ from flask import Flask, render_template
 # Flask needs to know where to look for template and static files
 
 app = Flask(__name__)
+app.secret_key = os.environ.get("SECRET_KEY")
 
 # use app.route decorator, decorator starts with @ also called pir-notation
 # sdecorator is way of wrapping functions
@@ -40,9 +43,13 @@ def about_member(member_name):
     return render_template("member.html", member=member)
 
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
-    return render_template("contact.html", page_title="ContactUs")
+    if request.method == "POST":
+        print(request.form)
+        # print(request["email"])
+        flash("Thank you {} for subitting".format(request.form.get("name")))
+    return render_template("contact.html", page_title="Contact Us")
 
 
 @app.route("/careers")
