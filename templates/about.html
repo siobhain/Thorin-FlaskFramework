@@ -20,6 +20,9 @@ url(https://www.farmgateveterinarygroup.ie/wp-content/uploads/2020/07/20200629_1
   {% if loop.index % 2 != 0 %}
 
   <div class="col-md-7">
+    <h3>
+      <a href="/about/{{ member.url }}">{{ loop.index }}. {{ member.name }}</a>
+    </h3>
     <h3>{{ loop.index }}. {{ member.name }}</h3>
     <p>{{ member.description }}</p>
   </div>
@@ -41,6 +44,9 @@ url(https://www.farmgateveterinarygroup.ie/wp-content/uploads/2020/07/20200629_1
     />
   </div>
   <div class="col-md-7">
+    <h3>
+      <a href="/about/{{ member.url }}">{{ loop.index }}. {{ member.name }}</a>
+    </h3>
     <h3>{{ loop.index }}. {{ member.name }}</h3>
     <p>{{ member.description }}</p>
   </div>
