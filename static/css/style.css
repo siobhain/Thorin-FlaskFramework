@@ -1,3 +1,18 @@
+* {
+    background-color: thistle;
+}
 .smallhero {
     height: 20vh;
+}
+
+/* textarea .form-control {
+    height: 2vh;
+}
+
+textarea #message {
+    height: 2vh;
+} */
+
+.flashes {
+    background-color: aqua;
 }
