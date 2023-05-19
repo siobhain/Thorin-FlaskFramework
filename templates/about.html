@@ -21,7 +21,8 @@ url(https://www.farmgateveterinarygroup.ie/wp-content/uploads/2020/07/20200629_1
 
   <div class="col-md-7">
     <h3>
-      <a href="/about/{{ member.url }}">{{ loop.index }}. {{ member.name }}</a>
+      <!-- <a href="/about/{{ member.url }}">{{ loop.index }}. {{ member.name }}</a> -->
+      <a href="/about/{{ member.name|replace(' ','-')|lower }}">{{ loop.index }}. {{ member.name }}</a>
     </h3>
     <h3>{{ loop.index }}. {{ member.name }}</h3>
     <p>{{ member.description }}</p>
